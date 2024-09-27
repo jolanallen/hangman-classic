@@ -18,7 +18,6 @@ import (
 	}
 	h.Init()
 	fmt.Println("lancement du jeux")
-	h.Start()
 	h.Run()
 	h.Stop()
 
