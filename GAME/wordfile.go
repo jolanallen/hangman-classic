@@ -3,7 +3,9 @@ package hangman
 import (
 	"bufio"
 	"fmt"
+	"math/rand"
 	"os"
+	"time"
 )
 
 //hangman "hangman/GAME"
@@ -13,21 +15,25 @@ func (hangman *HANGMAN) wordlist() {
 	if err != nil {
 		fmt.Println(err)
 		hangman.wordIsGood = false
+		hangman.IsRunning = false
 		defer wordFile.Close()
 	}
 	if err == nil {
 		hangman.wordIsGood = true
-	}
-	if hangman.wordIsGood {
 		scanner := bufio.NewScanner(wordFile)
 		for scanner.Scan() { 
 			hangman.Mot = scanner.Text()
 			hangman.TabMots = append(hangman.TabMots,  hangman.Mot)
-			fmt.Println(hangman.Mot)
-		}
-		
+		}	
+		hangman.randomWord()
 	}
 }
 
+func (hangman *HANGMAN) randomWord() {
+	rand.Seed(time.Now().UnixMilli())
+	hangman.randomNb = rand.Intn(38)
+	fmt.Println(hangman.randomNb)
+	
 
+}
 

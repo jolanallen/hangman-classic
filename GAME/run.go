@@ -9,11 +9,8 @@ func (hangman *HANGMAN) Run() {
 	if hangman.wordIsGood {
 		for hangman.IsRunning {
 		
-		
 		}
 	}
-	
-
 	
 }
 

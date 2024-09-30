@@ -12,6 +12,7 @@ type HANGMAN struct {
 	Mot           string
 	lMot          int
 	MotAdeviner   string
+	randomNb      int
 	TabByte       []byte
 	flag           bool
 	
