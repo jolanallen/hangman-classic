@@ -9,6 +9,6 @@ func (hangman *HANGMAN)Flag() {
 	flag.Parse()
 	if *help {
 		flag.Usage()
-		return 
+		
 	}
 }

@@ -2,7 +2,7 @@ package hangman
 import (
 	"fmt"
 	"os"
-	"bufio"
+	// "bufio"
 )
 
 
@@ -11,30 +11,16 @@ func (hangman *HANGMAN) Init() {
 	hangman.testWord()
 	hangman.wordlist()
 	hangman.Start()
+	hangman.hangman()
 }
 
 func (hangman *HANGMAN) testWord() {
-	hangman.lireMotsDepuisFichier("hangman/utile/wordlist/words.txt")
-    
-}
-func (hangman *HANGMAN) lireMotsDepuisFichier(nomFichier string) {
-	file, err := os.Open(nomFichier)
-    if err != nil {
+	TabMots, err := os.Open("utile/wordlist/words.txt")
+	if err != nil {
 		fmt.Println(err)
+	} 
+	if err == nil {
+		defer TabMots.Close()
+		hangman.wordIsGood = true
 	}
-    scanner := bufio.NewScanner(file)
-	
-    for scanner.Scan(){
-        hangman.TabMots = append(hangman.TabMots, scanner.Text())
-    }
-	fmt.Println(hangman.TabMots)
-    if err := scanner.Err(); err != nil {
-        fmt.Println(err)
-    }
-	defer file.Close()
-	motAleatoire := hangman.choisirmotaleatoire()
-    fmt.Println("Le mot est:", motAleatoire)
-	hangman.wordIsGood = true
-	// si les mot sont invalide
-		//revoit invalide wordlist
 }
