@@ -12,3 +12,4 @@ func (hangman *HANGMAN) testWord() {
 	// si les mot sont invalide
 		//revoit invalide wordlist
 }
+// afficher des espaces blanc quand lettre appartient au mot, etat vhange pas et affiche la lettre sinon l'etat change 
