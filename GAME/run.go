@@ -18,7 +18,8 @@ func (hangman *HANGMAN) Run() {
 			fmt.Print("_  ")
 		}
 		fmt.Println(" ")
-		hangman.hangman()
+		hangman.erreur = 0
+		
 		// for hangman.IsRunning {
 			
 
@@ -67,7 +68,8 @@ func (hangman *HANGMAN) win() {
 }
 
 func (hangman *HANGMAN) gameOver() {
-	fmt.Print("fin du jeu le mot était ")
+	fmt.Print("fin du jeu le mot était : ")
+	fmt.Println(hangman.MotAdeviner)
 	
 	
 }
