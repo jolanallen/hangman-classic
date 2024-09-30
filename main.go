@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"flag"
 	hangman "hangman/GAME"
 )
@@ -17,7 +16,7 @@ import (
 		return 
 	}
 	h.Init()
-	fmt.Println("lancement du jeux")
+	h.DrawDisplay()
 	h.Start()
 	h.Run()
 	h.Stop()
