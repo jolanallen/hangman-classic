@@ -13,7 +13,6 @@ func (hangman *HANGMAN) Run() {
 	hangman.testWord()
 	if hangman.wordIsGood {
 		hangman.lMot = len(hangman.MotAdeviner)
-		fmt.Println(hangman.MotAdeviner)
 		for i := 1; i <= hangman.lMot; i++ {
 			fmt.Print("_  ")
 		}
