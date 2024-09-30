@@ -6,6 +6,8 @@ type HANGMAN struct {
 	Win        bool
 	Loose      bool
 	wordIsGood       bool
+	TabMots    []string
+	Mot         string
 	
 
 }

@@ -6,7 +6,7 @@ package hangman
 
 func (hangman *HANGMAN) start() {
 	if hangman.wordIsGood {
-		
+		hangman.wordlist(hangman.Mot)
 	} else {
 		hangman.Stop()
 	}
