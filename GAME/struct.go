@@ -13,6 +13,7 @@ type HANGMAN struct {
 	lMot          int
 	MotAdeviner   string
 	TabByte       []byte
+	flag           bool
 	
 	
 }

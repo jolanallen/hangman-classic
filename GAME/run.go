@@ -6,11 +6,13 @@ package hangman
 
 
 func (hangman *HANGMAN) Run() {
-	
-	for hangman.IsRunning {
+	if hangman.wordIsGood {
+		for hangman.IsRunning {
 		
 		
+		}
 	}
+	
 
 	
 }
