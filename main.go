@@ -15,8 +15,8 @@ import (
 		flag.Usage()
 		return 
 	}
-	h.Init()
 	h.DrawDisplay()
+	h.Init()
 	h.Start()
 	h.Run()
 	h.Stop()

@@ -8,6 +8,7 @@ type HANGMAN struct {
 	wordIsGood       bool
 	TabMots    []string
 	Mot         string
+	File        string
 	
 
 }

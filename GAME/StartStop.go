@@ -4,7 +4,7 @@ package hangman
 
 
 
-func (hangman *HANGMAN) start() {
+func (hangman *HANGMAN) Start() {
 	if hangman.wordIsGood {
 		hangman.wordlist()
 	} else {
