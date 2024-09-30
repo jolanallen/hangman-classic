@@ -15,12 +15,14 @@ func (hangman *HANGMAN) Init() {
 }
 
 func (hangman *HANGMAN) testWord() {
-	TabMots, err := os.Open("utile/wordlist/words.txt")
+	TesTabs, err := os.Open("utile/wordlist/words.txt")
 	if err != nil {
 		fmt.Println(err)
+		hangman.wordIsGood = false
+		defer TesTabs.Close()
 	} 
 	if err == nil {
-		defer TabMots.Close()
+		defer TesTabs.Close()
 		hangman.wordIsGood = true
 	}
 }

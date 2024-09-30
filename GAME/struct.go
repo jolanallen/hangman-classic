@@ -1,6 +1,5 @@
 package hangman
 
-import "os"
 
 
 type HANGMAN struct {
@@ -12,9 +11,8 @@ type HANGMAN struct {
 	TabMots       []string
 	Mot           string
 	lMot          int
+	MotAdeviner   string
 	
 	
 }
-type file struct {
-	
-}
+
