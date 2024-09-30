@@ -1,9 +1,10 @@
 package hangman
+
 import (
+	"bufio"
+	"flag"
 	"fmt"
 	"os"
-	//"bufio"
-	"flag"
 )
 
 
@@ -12,10 +13,17 @@ func (hangman *HANGMAN) Init() {
 	
 	if !hangman.flag {
 		hangman.drawDisplay()
+		hangman.intiwordlist()
 		hangman.testWord()
-		hangman.Start()
+		hangman.initHangman()
+	} else {
+		hangman.drawDisplay()
+		hangman.Flag()
+		hangman.intiwordlist()
+		hangman.testWord()
+		hangman.initHangman()
+
 	}
-	
 }
 func (hangman *HANGMAN)Flag() {
 	help := flag.Bool("h",false, "Afficher de l'aide\n")
@@ -44,24 +52,23 @@ func (hangman *HANGMAN) drawDisplay() {
 	fmt.Println("-----------------------------------------------------------------------------------------------------------------------------------")
 }
 
-
-func (hangman *HANGMAN) testWord() {
-	TesTab, err := os.ReadFile("utile/wordlist/words.txt")
+func (hangman *HANGMAN) intiwordlist() {
+	wordFile, err := os.Open("utile/wordlist/words.txt")
 	if err != nil {
 		fmt.Println(err)
-		hangman.wordIsGood = false
-		
-	} 
+		defer wordFile.Close()
+	}
 	if err == nil {
-		hangman.wordIsGood = true
-		
-		
-
+		scanner := bufio.NewScanner(wordFile)
+		for scanner.Scan() { 
+			hangman.Mot = scanner.Text()
+			hangman.TabMots = append(hangman.TabMots,  hangman.Mot)
+		}
+		defer wordFile.Close()
+		hangman.IsRunning = true
 	}
-	if hangman.wordIsGood {
-		hangman.TabByte = TesTab
-		
-	}
-	
 }
-
+func (hangman *HANGMAN) initHangman() {
+	hangman.Etat0()
+  
+}

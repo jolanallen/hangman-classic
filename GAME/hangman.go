@@ -2,21 +2,102 @@ package hangman
 
 import (
 	"fmt"
-	"os"
+
 )
 
 
 
 func (hangman *HANGMAN) hangman() {
-	hangman.etat1()
+	
 }
 
-func (hangman *HANGMAN) etat1() {
-	Etat1, err := os.Open("utile/hangman/etat1.txt")
-	if err != nil {
-		fmt.Println(err)
-	}
-	if err == nil {
-		fmt.Println(Etat1)
-	}
+
+func (hangman *HANGMAN) Etat0() {
+    fmt.Println(`
+     +---+
+     |   |
+         |
+         |
+         |
+         |
+    =========
+    `)
+}
+
+
+func (hangman *HANGMAN) Etat1() {
+    fmt.Println(`
+     +---+
+     |   |
+     O   |
+         |
+         |
+         |
+    =========
+    `)
+}
+
+
+func (hangman *HANGMAN) Etat2() {
+    fmt.Println(`
+     +---+
+     |   |
+     O   |
+     |   |
+         |
+         |
+    =========
+    `)
+}
+
+
+func (hangman *HANGMAN) Etat3() {
+    fmt.Println(`
+     +---+
+     |   |
+     O   |
+    /|   |
+         |
+         |
+    =========
+    `)
+}
+
+
+func (hangman *HANGMAN) Etat4() {
+    fmt.Println(`
+     +---+
+     |   |
+     O   |
+    /|\\  |
+         |
+         |
+    =========
+    `)
+}
+
+
+func (hangman *HANGMAN) Etat5() {
+    fmt.Println(`
+     +---+
+     |   |
+     O   |
+    /|\\  |
+    /    |
+         |
+    =========
+    `)
+}
+
+
+func (hangman *HANGMAN) Etat6() {
+    fmt.Println(`
+     +---+
+     |   |
+     O   |
+    /|\\  |
+    / \\  |
+         |
+    =========
+    `)
 }

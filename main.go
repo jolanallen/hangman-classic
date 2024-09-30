@@ -9,7 +9,6 @@ import (
     var h hangman.HANGMAN
 	h.Flag()
 	h.Init()
-	h.Start()
 	h.Run()
 	
 	

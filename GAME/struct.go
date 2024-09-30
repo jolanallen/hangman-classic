@@ -9,11 +9,11 @@ type HANGMAN struct {
 	Loose         bool
 	wordIsGood    bool
 	TabMots       []string
+	
 	Mot           string
 	lMot          int
 	MotAdeviner   string
 	randomNb      int
-	TabByte       []byte
 	flag           bool
 	
 	
