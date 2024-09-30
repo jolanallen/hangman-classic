@@ -3,7 +3,7 @@ package hangman
 
 
 func (hangman *HANGMAN) Init() {
-	hangman.hangman()
+	hangman.testWord()
 }
 
 func (hangman *HANGMAN) testWord() {
