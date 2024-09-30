@@ -70,5 +70,6 @@ func (hangman *HANGMAN) intiwordlist() {
 }
 func (hangman *HANGMAN) initHangman() {
 	hangman.Etat0()
+	hangman.erreur = 0
   
 }

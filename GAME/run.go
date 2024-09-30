@@ -18,14 +18,13 @@ func (hangman *HANGMAN) Run() {
 			fmt.Print("_  ")
 		}
 		fmt.Println(" ")
-		fmt.Println(hangman.MotAdeviner)
 		hangman.hangman()
-		for hangman.IsRunning {
+		// for hangman.IsRunning {
 			
 
 
 
-		}	
+		// }	
 	}		
 }
 func (hangman *HANGMAN) testWord() {

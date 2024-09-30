@@ -15,6 +15,9 @@ type HANGMAN struct {
 	MotAdeviner   string
 	randomNb      int
 	flag           bool
+	erreur       int
+	lettreIsGood bool
+	lettre       rune
 	
 	
 }
