@@ -116,6 +116,9 @@
         <mxCell id="6MwHpRs4NIr8K2cgIE9o-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="00EPP4b1QPSq4I4m9Bne-5" target="00EPP4b1QPSq4I4m9Bne-5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="6MwHpRs4NIr8K2cgIE9o-14" value="chargement de état 1 pendu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="585" width="100" height="45" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>

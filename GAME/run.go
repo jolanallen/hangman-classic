@@ -5,10 +5,10 @@ package hangman
 
 func (hangman *HANGMAN) Run() {
 	
-	//for hangman.IsRunning {
+	for hangman.IsRunning {
 		
 		
-	//}
+	}
 
 	
 }

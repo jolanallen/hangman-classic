@@ -5,6 +5,9 @@ type HANGMAN struct {
 	InGame     bool
 	Win        bool
 	Loose      bool
+	wordIsGood       bool
+	TabMots    []string
+	Mot         stringu
 	
 
 }
