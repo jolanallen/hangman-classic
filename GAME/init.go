@@ -2,12 +2,13 @@ package hangman
 import (
 	"fmt"
 	"os"
-	// "bufio"
+	"bufio"
 )
 
 
 
 func (hangman *HANGMAN) Init() {
+	hangman.wordIsGood = false
 	hangman.testWord()
 	hangman.wordlist()
 	hangman.Start()
@@ -15,14 +16,19 @@ func (hangman *HANGMAN) Init() {
 }
 
 func (hangman *HANGMAN) testWord() {
-	TesTabs, err := os.Open("utile/wordlist/words.txt")
+	TesTab, err := os.ReadFile("utile/wordlist/words.txt")
 	if err != nil {
 		fmt.Println(err)
 		hangman.wordIsGood = false
-		defer TesTabs.Close()
+		
 	} 
 	if err == nil {
-		defer TesTabs.Close()
 		hangman.wordIsGood = true
+		
+		
+
+	}
+	if hangman.wordIsGood {
+		hangman.TabByte = TesTab
 	}
 }
