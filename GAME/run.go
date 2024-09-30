@@ -5,11 +5,10 @@ package hangman
 
 func (hangman *HANGMAN) Run() {
 	
-	for hangman.IsRunning {
-		hangman.win()
-		hangman.gameOver()
+	//for hangman.IsRunning {
 		
-	}
+		
+	//}
 
 	
 }
