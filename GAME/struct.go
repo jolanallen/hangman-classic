@@ -7,7 +7,7 @@ type HANGMAN struct {
 	Loose      bool
 	wordIsGood       bool
 	TabMots    []string
-	Mot         stringu
+	Mot         string
 	
 
 }
