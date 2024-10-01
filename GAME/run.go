@@ -1,9 +1,13 @@
 package hangman
 
 import (
+	"bufio"
 	"fmt"
 	"math/rand"
+	"os"
 	"time"
+
+	
 )
 
 
@@ -19,41 +23,61 @@ func (hangman *HANGMAN) Run() {
 		fmt.Println(" ")
 		hangman.erreur = 0
 		
-		// for hangman.IsRunning {
+		for hangman.IsRunning {
+			hangman.letter()
 			
 
 
 
-		// }	
+
+		}	
 	}		
 }
+func (hangman *HANGMAN) letter() {
+	var Reader = bufio.NewReader(os.Stdin)
+	Rune, _, err := Reader.ReadRune()
+	if err != nil {
+		fmt.Println(err)
+	}
+	if Rune <= 'a' || Rune >= 'z' {
+		hangman.lettreIsGood = false
+		fmt.Println("lettre entrée incorect. Veuliiez entrée un charactére de l'alphabet sans accent.")
+	} else {
+		Rune = hangman.lettre
+		fmt.Println(hangman.lettre)
+	}
+
+	
+	
+}
+func (hangman *HANGMAN) testLetter() {
+	
+
+}
 func (hangman *HANGMAN) testWord() {
-	var TabRune = []rune(hangman.MotAdeviner)
+	hangman.TabRune = []rune(hangman.MotAdeviner)
 	hangman.randomWord()
 	hangman.MotAdeviner = (hangman.TabMots[hangman.randomNb])
-	for tab := range TabRune {
-		 var Rune = TabRune[tab]
+	for tab := range hangman.TabRune {
+		 var Rune = hangman.TabRune[tab]
 		if Rune <= 'z' && Rune >= 'a' {
 			hangman.wordIsGood = true
+
 		} else {
 			hangman.wordIsGood = false
 			fmt.Println("mot invalid")
 			hangman.Stop()
-			break
-			
+			break	
 		}
-
-
 	}
-	
-	
 }
 func (hangman *HANGMAN) randomWord() {
 	rand.Seed(time.Now().UnixMilli())
-	hangman.randomNb = rand.Intn(38)
-
+	hangman.randomNb = rand.Intn(len(hangman.TabMots))
+	
 
 }
+
 
 
 func(hangman *HANGMAN) Stop() {
