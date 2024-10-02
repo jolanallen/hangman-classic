@@ -36,20 +36,7 @@ func (hangman *HANGMAN) letter() {
 	}
 }
 func (hangman *HANGMAN) testLetter() {
-	for tab := range hangman.TabRune { 
-
-		if hangman.TabRune[tab] == hangman.lettre {
-			hangman.lettreIsGood = true 
-			for i := 0; i < tab; i++ {
-				fmt.Print(" _ ")
-			}
-			fmt.Print(hangman.lettre)
-			for i := tab + 1; i <= hangman.lMot; i++ {
-				fmt.Print(" _ ")
-			}
-
-		}	
-	}
+	
 
 }
 
