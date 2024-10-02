@@ -12,12 +12,14 @@ type HANGMAN struct {
 	TabRune       []rune
 	Mot           string
 	lMot          int
-	MotAdeviner   string
+	MotAdeviner   []rune
+	motIconnu     []string
 	randomNb      int
 	flag           bool
 	erreur       int
 	lettreIsGood bool
 	lettre       rune
+	
 	
 	
 }

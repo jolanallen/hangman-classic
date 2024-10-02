@@ -14,13 +14,11 @@ func (hangman *HANGMAN) Init() {
 	if !hangman.flag {
 		hangman.drawDisplay()
 		hangman.intiwordlist()
-		hangman.testWord()
 		hangman.initHangman()
 	} else {
 		hangman.drawDisplay()
 		hangman.Flag()
 		hangman.intiwordlist()
-		hangman.testWord()
 		hangman.initHangman()
 
 	}
@@ -60,9 +58,10 @@ func (hangman *HANGMAN) intiwordlist() {
 	}
 	if err == nil {
 		scanner := bufio.NewScanner(wordFile)
+		var mot string
 		for scanner.Scan() { 
-			hangman.Mot = scanner.Text()
-			hangman.TabMots = append(hangman.TabMots,  hangman.Mot)
+			mot = scanner.Text()
+			hangman.TabMots = append(hangman.TabMots,  mot)
 		}
 		defer wordFile.Close()
 		hangman.IsRunning = true
