@@ -16,6 +16,7 @@ import (
 func (hangman *HANGMAN) Run() {
 	hangman.randomWord()
 	 for hangman.IsRunning {
+		hangman.hangman()
 		hangman.letter()
 		hangman.testLetter()
 		
@@ -28,16 +29,27 @@ func (hangman *HANGMAN) Run() {
 func (hangman *HANGMAN) letter() {
 	var Reader = bufio.NewReader(os.Stdin)
 	Rune, _, _:= Reader.ReadRune()
-	if Rune <= 'a' || Rune >= 'z' {
+	if Rune < 'a' || Rune > 'z' {
 		fmt.Println("lettre entrée incorect!!")
+		
 	} else {
 		hangman.lettre = Rune 	
 		
 	}
 }
 func (hangman *HANGMAN) testLetter() {
-	
+	for l := range hangman.MotAdeviner {
+		if hangman.lettre == hangman.MotAdeviner[l] {
+			hangman.motIconnu[l] = string(hangman.lettre)
+			fmt.Println(hangman.motIconnu)
 
+		} else {
+			hangman.erreur =+ 1
+			hangman.hangman()
+			fmt.Println(hangman.erreur)
+			break
+		}
+	}
 }
 
 func (hangman *HANGMAN) randomWord() {
@@ -47,9 +59,9 @@ func (hangman *HANGMAN) randomWord() {
 	fmt.Println(hangman.Mot)
 	hangman.MotAdeviner = []rune(hangman.Mot)
 	fmt.Println(hangman.MotAdeviner)
-	var lettreInconu string = " _ "
+	var inconnu string = " _ "
 	for i := 0; i < len(hangman.MotAdeviner); i++ {
-		hangman.motIconnu = append(hangman.motIconnu, lettreInconu)
+		hangman.motIconnu = append(hangman.motIconnu, inconnu)
 	}
 	fmt.Println(hangman.motIconnu)
 
@@ -71,7 +83,7 @@ func(hangman *HANGMAN) Stop() {
 
 func (hangman *HANGMAN) gameOver() {
 	fmt.Print("fin du jeu le mot était : ")
-	fmt.Println(hangman.MotAdeviner)
+	fmt.Println(hangman.Mot)
 	
 	
 }
