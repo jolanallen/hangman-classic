@@ -31,7 +31,7 @@ func (hangman *HANGMAN)Flag() {
 		hangman.flag = true
 	}
 }
-func (hangman *HANGMAN) DrawDisplay() {
+func (hangman *HANGMAN) drawDisplay() {
 	fmt.Println("Bienvenue dans le HANGMAN Ynov 2024 B1 Info Montpellier )")
 	fmt.Println("---------------------------------------------------------------------------------------------------------------------------------------------")
 	fmt.Println((`																													 
