@@ -12,11 +12,11 @@ import (
 func (hangman *HANGMAN) Init() {
 	
 	if !hangman.flag {
-		hangman.DrawDisplay()
+		hangman.drawDisplay()
 		hangman.intiwordlist()
 		hangman.initHangman()
 	} else {
-		hangman.DrawDisplay()
+		hangman.drawDisplay()
 		hangman.Flag()
 		hangman.intiwordlist()
 		hangman.initHangman()
