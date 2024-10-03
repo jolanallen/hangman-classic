@@ -16,8 +16,9 @@ import (
 func (hangman *HANGMAN) Run() {
 	hangman.randomWord()
 	 for hangman.IsRunning {
-		hangman.hangman()
-		hangman.testLetter()
+		hangman.letter()
+		
+		
 		
 		
 
@@ -28,27 +29,29 @@ func (hangman *HANGMAN) Run() {
 func (hangman *HANGMAN) letter() {
 	var Reader = bufio.NewReader(os.Stdin)
 	Rune, _, _:= Reader.ReadRune()
-	if Rune < 'a' || Rune > 'z' {
-		fmt.Println("lettre entrée incorect!!")
+	if Rune >= 'a' && Rune <= 'z' {
+		hangman.lettre = Rune 
+		hangman.testLetter()
 		
 	} else {
-		hangman.lettre = Rune 	
+		
+		fmt.Println("lettre entrée incorect!!")
+			
 		
 	}
 }
 func (hangman *HANGMAN) testLetter() {
-	hangman.letter()
 	for l := range hangman.MotAdeviner {
 		if hangman.lettre == hangman.MotAdeviner[l] {
+			hangman.lettreIsGood = true
 			hangman.motIconnu[l] = string(hangman.lettre)
 			fmt.Println(hangman.motIconnu)
-			break
 
-		} else if hangman.lettre != hangman.MotAdeviner[l] {
-			hangman.erreur =+ 1
-			hangman.hangman()
-			break
-		}
+		} 
+	}
+	if !hangman.lettreIsGood {
+		hangman.erreur =+ 1
+		
 	}
 }
 
