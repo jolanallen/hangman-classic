@@ -128,5 +128,4 @@ func (hangman *HANGMAN) Etat6() {
          |
     =========
     `)
-	hangman.gameOver()
 }
