@@ -67,8 +67,8 @@ func (hangman *HANGMAN) intiwordlist() {
 	}
 }
 func (hangman *HANGMAN) initHangman() {
-	
-	hangman.erreur = 0
+	hangman.lettreIsGood = true
 	hangman.hangman()
+	
   
 }

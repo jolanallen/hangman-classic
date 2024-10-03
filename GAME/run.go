@@ -15,7 +15,6 @@ import (
 
 func (hangman *HANGMAN) Run() {
 	hangman.randomWord()
-	hangman.erreur = 0
 	 for hangman.IsRunning {
 		hangman.letter()
 		
@@ -44,22 +43,27 @@ func (hangman *HANGMAN) letter() {
 	}
 }
 func (hangman *HANGMAN) testLetter() {
+	var erreur int = hangman.erreur
 	for l := range hangman.MotAdeviner {
 		if hangman.lettre == hangman.MotAdeviner[l] {
 			hangman.lettreIsGood = true
 			hangman.motIconnu[l] = string(hangman.lettre)
-		} else {
+		} else if !(hangman.lettre == hangman.MotAdeviner[l]) {
 			hangman.lettreIsGood = false
-		}
+			
+		}	
 	}
-	if hangman.lettreIsGood {
+	if hangman.lettreIsGood == true {
 		hangman.hangman()
 		fmt.Println(hangman.motIconnu)
-	}
-	if !hangman.lettreIsGood {
-		hangman.erreur = hangman.erreur + 1
+		
+		
+	} 
+	if hangman.lettreIsGood == false{
 		hangman.hangman()
+		hangman.erreur = erreur + 1
 		fmt.Println(hangman.motIconnu)
+
 		
 	}
 }

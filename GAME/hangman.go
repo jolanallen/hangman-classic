@@ -35,6 +35,7 @@ func (hangman *HANGMAN) hangman() {
 
 func (hangman *HANGMAN) Etat0() {
     fmt.Print(`
+                         Attemps 0/6
      +---+
      |   |
          |
@@ -48,6 +49,7 @@ func (hangman *HANGMAN) Etat0() {
 
 func (hangman *HANGMAN) Etat1() {
     fmt.Print(`
+                         Attemps 1/6
      +---+
      |   |
      O   |
@@ -61,6 +63,7 @@ func (hangman *HANGMAN) Etat1() {
 
 func (hangman *HANGMAN) Etat2() {
     fmt.Print(`
+                         Attemps 2/6
      +---+
      |   |
      O   |
@@ -74,6 +77,7 @@ func (hangman *HANGMAN) Etat2() {
 
 func (hangman *HANGMAN) Etat3() {
     fmt.Println(`
+                         Attemps 3/6
      +---+
      |   |
      O   |
@@ -87,6 +91,7 @@ func (hangman *HANGMAN) Etat3() {
 
 func (hangman *HANGMAN) Etat4() {
     fmt.Println(`
+                         Attemps 4/6
      +---+
      |   |
      O   |
@@ -100,6 +105,7 @@ func (hangman *HANGMAN) Etat4() {
 
 func (hangman *HANGMAN) Etat5() {
     fmt.Println(`
+                        Attemps 5/6
      +---+
      |   |
      O   |
@@ -113,6 +119,7 @@ func (hangman *HANGMAN) Etat5() {
 
 func (hangman *HANGMAN) Etat6() {
     fmt.Println(`
+                        Attemps 6/6
      +---+
      |   |
      O   |
