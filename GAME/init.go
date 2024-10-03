@@ -12,11 +12,11 @@ import (
 func (hangman *HANGMAN) Init() {
 	
 	if !hangman.flag {
-		hangman.drawDisplay()
+		hangman.DrawDisplay()
 		hangman.intiwordlist()
 		hangman.initHangman()
 	} else {
-		hangman.drawDisplay()
+		hangman.DrawDisplay()
 		hangman.Flag()
 		hangman.intiwordlist()
 		hangman.initHangman()
@@ -31,12 +31,12 @@ func (hangman *HANGMAN)Flag() {
 		hangman.flag = true
 	}
 }
-func (hangman *HANGMAN) drawDisplay() {
-	fmt.Println("Bienvenue dans le HANGMAN *Ynov 2024 B1 Info Montpellier* )                                                 		  ")
-	fmt.Println("--------------------------------------------------------------------------------------------------------------------------------------")
-	fmt.Println((`		
-					__ __   ____  ____    ____  ___ ___   ____  ____  
-   					|  |  | /    ||    \  /    ||   |   | /    ||    \ 
+func (hangman *HANGMAN) DrawDisplay() {
+	fmt.Println("Bienvenue dans le HANGMAN Ynov 2024 B1 Info Montpellier )")
+	fmt.Println("---------------------------------------------------------------------------------------------------------------------------------------------")
+	fmt.Println((`																													 
+					 __ __   ____  ____    ____  ___ ___   ____  ____  				\ / |\ | / \ \  /
+   					|  |  | /    ||    \  /    ||   |   | /    ||    \ 				 |  | \| \_/  \/
    					|  |  ||  o  ||  _  ||   __|| _   _ ||  o  ||  _  |
    					|  _  ||     ||  |  ||  |  ||  \_/  ||     ||  |  |
    					|  |  ||  _  ||  |  ||  |_ ||   |   ||  _  ||  |  |
@@ -44,10 +44,11 @@ func (hangman *HANGMAN) drawDisplay() {
    					|__|__||__|__||__|__||___,_||___|___||__|__||__|__|
 	   `))
 	fmt.Println("                                                   	  ")
-	fmt.Println("					Bonne chance !						  ")
+	fmt.Println("					                     Bienvenue !						  ")
+	fmt.Println("					                     Bienvenue !						  ")
 	fmt.Println("                                                   	  ")
 	fmt.Println("                                                   	  ")
-	fmt.Println("-----------------------------------------------------------------------------------------------------------------------------------")
+	fmt.Println("---------------------------------------------------------------------------------------------------------------------------------------------")
 }
 
 func (hangman *HANGMAN) intiwordlist() {

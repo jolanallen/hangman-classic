@@ -13,6 +13,7 @@ func (hangman *HANGMAN) hangman() {
 	}
 	if hangman.erreur == 1 {
 		hangman.Etat1()
+        
 	}
 	if hangman.erreur == 2 {
 		hangman.Etat2()
