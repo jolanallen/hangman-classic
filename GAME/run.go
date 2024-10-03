@@ -1,44 +1,89 @@
 package hangman
 
+import (
+	"bufio"
+	"fmt"
+	"math/rand"
+	"os"
+	"time"
+
+	
+)
+
 
 
 
 func (hangman *HANGMAN) Run() {
-	vie := 10 //nombre de vie(a changer comme on veut)
-	blanc := []strings{} // pour l'affichage des blancs
-	for range mot {
-		blanc = append(blanc,"_")
+	hangman.randomWord()
+	 for hangman.IsRunning {
+		hangman.hangman()
+		hangman.testLetter()
+		
+		
+
+	 }			
+}
+
+
+func (hangman *HANGMAN) letter() {
+	var Reader = bufio.NewReader(os.Stdin)
+	Rune, _, _:= Reader.ReadRune()
+	if Rune < 'a' || Rune > 'z' {
+		fmt.Println("lettre entrée incorect!!")
+		
+	} else {
+		hangman.lettre = Rune 	
+		
 	}
-	var input string // pour entrer une lettre 
-	fmt.Scanln(&input) // lire la lettre entrer
-	for _, inputLetter := range input {
-		BonneLettre := false
-		for i, motLetter := range mot { // verifier si la lettre entrer est dans le mot
-			if inputLetter == motLetter {
-				blanc[i] = string(inputLetter) // remplacer le blanc par la lettre
-				BonneLettre = true
-			}
+}
+func (hangman *HANGMAN) testLetter() {
+	hangman.letter()
+	for l := range hangman.MotAdeviner {
+		if hangman.lettre == hangman.MotAdeviner[l] {
+			hangman.motIconnu[l] = string(hangman.lettre)
+			fmt.Println(hangman.motIconnu)
+			break
+
+		} else if hangman.lettre != hangman.MotAdeviner[l] {
+			hangman.erreur =+ 1
+			hangman.hangman()
+			break
 		}
-	if !BonneLettre { // si la lettre n'est pas dans le mot, on perd une vie
-		vie -= 1
 	}
-	}
-	if vie <= 0 { // si plus de vie on game over
-		hangman.gameOver()
-	}
+}
 
-	//for hangman.IsRunning {
-		
-		
-	//}
+func (hangman *HANGMAN) randomWord() {
+	rand.Seed(time.Now().UnixMilli())
+	hangman.randomNb = rand.Intn(len(hangman.TabMots))
+	hangman.Mot = hangman.TabMots[hangman.randomNb]
+	fmt.Println(hangman.Mot)
+	hangman.MotAdeviner = []rune(hangman.Mot)
+	fmt.Println(hangman.MotAdeviner)
+	var inconnu string = "_"
+	for i := 0; i < len(hangman.MotAdeviner); i++ {
+		hangman.motIconnu = append(hangman.motIconnu, inconnu)
+	}
+	fmt.Println(hangman.motIconnu)
 
+	
+
+}
+
+
+
+func(hangman *HANGMAN) Stop() {
+	hangman.IsRunning = false
 	
 }
 
-func (hangman *HANGMAN) win() {
-
-}
+// func (hangman *HANGMAN) win() {
+// 	fmt.Print("fin du jeu vous avez gagner")
+	
+// }
 
 func (hangman *HANGMAN) gameOver() {
-
+	fmt.Print("fin du jeu le mot était : ")
+	fmt.Println(hangman.Mot)
+	
+	
 }
