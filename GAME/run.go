@@ -15,6 +15,7 @@ import (
 
 func (hangman *HANGMAN) Run() {
 	hangman.randomWord()
+	hangman.erreur = 0
 	 for hangman.IsRunning {
 		hangman.letter()
 		
@@ -31,10 +32,12 @@ func (hangman *HANGMAN) letter() {
 	Rune, _, _:= Reader.ReadRune()
 	if Rune >= 'a' && Rune <= 'z' {
 		hangman.lettre = Rune 
+		
 		hangman.testLetter()
 		
 	} else {
-		
+		fmt.Println(hangman.motIconnu)
+	
 		fmt.Println("lettre entrée incorect!!")
 			
 		
@@ -45,12 +48,18 @@ func (hangman *HANGMAN) testLetter() {
 		if hangman.lettre == hangman.MotAdeviner[l] {
 			hangman.lettreIsGood = true
 			hangman.motIconnu[l] = string(hangman.lettre)
-			fmt.Println(hangman.motIconnu)
-
-		} 
+		} else {
+			hangman.lettreIsGood = false
+		}
+	}
+	if hangman.lettreIsGood {
+		hangman.hangman()
+		fmt.Println(hangman.motIconnu)
 	}
 	if !hangman.lettreIsGood {
-		hangman.erreur =+ 1
+		hangman.erreur = hangman.erreur + 1
+		hangman.hangman()
+		fmt.Println(hangman.motIconnu)
 		
 	}
 }
@@ -87,6 +96,7 @@ func(hangman *HANGMAN) Stop() {
 func (hangman *HANGMAN) gameOver() {
 	fmt.Print("fin du jeu le mot était : ")
 	fmt.Println(hangman.Mot)
+	hangman.IsRunning = false
 	
 	
 }

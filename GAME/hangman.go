@@ -34,7 +34,7 @@ func (hangman *HANGMAN) hangman() {
 
 
 func (hangman *HANGMAN) Etat0() {
-    fmt.Println(`
+    fmt.Print(`
      +---+
      |   |
          |
@@ -47,7 +47,7 @@ func (hangman *HANGMAN) Etat0() {
 
 
 func (hangman *HANGMAN) Etat1() {
-    fmt.Println(`
+    fmt.Print(`
      +---+
      |   |
      O   |
@@ -60,7 +60,7 @@ func (hangman *HANGMAN) Etat1() {
 
 
 func (hangman *HANGMAN) Etat2() {
-    fmt.Println(`
+    fmt.Print(`
      +---+
      |   |
      O   |
