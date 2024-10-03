@@ -18,9 +18,11 @@ func (hangman *HANGMAN) Run() {
 	 for hangman.IsRunning {
 		hangman.letter()
 		hangman.testword()
-		hangman.win()
-		hangman.gameOver()
-		
+		if hangman.wordIsGood {
+			hangman.win()
+		} else {
+			hangman.gameOver()
+		}
 		
 		
 		
@@ -46,47 +48,42 @@ func (hangman *HANGMAN) letter() {
 	}
 }
 func (hangman *HANGMAN) testword() {
-	//for i := range hangman.TabRune {
-		var i int = 0
-		if hangman.motIconnu[i] == hangman.TabWord[i] {
-			i ++
-			if i == len(hangman.MotAdeviner) {
-				hangman.wordIsGood = true
-			}
-		} 
+	hangman.wordIsGood = true
+	for l := range hangman.TabWord {
+		if hangman.motIconnu[l] == "_" {
+			break
+		} else if !(hangman.motIconnu[l] ==  hangman.TabMots[l]) {
+			hangman.wordIsGood = false
+			break
+		}
+			
+		
+	}
+	
 }
 func (hangman *HANGMAN) testLetter() {
-	
+	hangman.lettreIsGood = false
 	for l := range hangman.MotAdeviner {
 		if hangman.lettre == hangman.MotAdeviner[l] {
 			hangman.lettreIsGood = true
 			hangman.motIconnu[l] = string(hangman.lettre)
-			if l == len(hangman.MotAdeviner) {
-				break
-			}
-			
-		} else if !(hangman.lettre == hangman.MotAdeviner[l]) {
-			hangman.lettreIsGood = false
-			
-		} 
+		}
 		
 	}
-	if hangman.lettreIsGood == true {
-		hangman.hangman()
+	if hangman.lettreIsGood {
 		fmt.Println(hangman.motIconnu)
+	} else {
 		
-		
-	} 
-	if hangman.lettreIsGood == false {
-		hangman.erreur += 1
-		hangman.hangman()
-		fmt.Println(hangman.motIconnu)
-
-		
+		hangman.erreur++
 	}
+	hangman.hangman()
 	
-
 }
+
+	
+// pour appeler la fonction test word on vas utiliser la loncguer de mot inconu 
+// initialement le tableau mot inconnu suera vide et si la longuer du tableau inconu  = longeur mot a devier alors on appelle test word 
+// l'information de la taille du mot sera donnée par un print len(mot a deviner)
 
 func (hangman *HANGMAN) randomWord() {
 	rand.Seed(time.Now().UnixMilli())
@@ -114,19 +111,18 @@ func (hangman *HANGMAN) randomWord() {
 
 
 func (hangman *HANGMAN) win() {
-	if hangman.wordIsGood && hangman.erreur < 6 {
-		fmt.Print("fin du jeu vous avez gagner")
-		hangman.IsRunning = false
-
-	}
+	
+	fmt.Print("fin du jeu vous avez gagner")
+	hangman.IsRunning = false
+	
 	
 	
 }
 
 func (hangman *HANGMAN) gameOver() {
-	if !(hangman.wordIsGood) && hangman.erreur == 6 {
-		fmt.Print("fin du jeu le mot était : ")
-		fmt.Println(hangman.Mot)
-		hangman.IsRunning = false
-	}
+	
+	fmt.Print("fin du jeu le mot était : ")
+	fmt.Println(hangman.Mot)
+	hangman.IsRunning = false
+	
 }
