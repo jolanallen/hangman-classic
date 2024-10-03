@@ -88,15 +88,15 @@ func(hangman *HANGMAN) Stop() {
 	
 }
 
-// func (hangman *HANGMAN) win() {
-// 	fmt.Print("fin du jeu vous avez gagner")
+func (hangman *HANGMAN) win() {
+	fmt.Print("fin du jeu vous avez gagner")
+	hangman.Stop()
 	
-// }
+}
 
 func (hangman *HANGMAN) gameOver() {
 	fmt.Print("fin du jeu le mot était : ")
 	fmt.Println(hangman.Mot)
-	hangman.IsRunning = false
-	
+	hangman.Stop()
 	
 }

@@ -11,7 +11,6 @@ type HANGMAN struct {
 	TabMots       []string
 	TabRune       []rune
 	Mot           string
-	lMot          int
 	MotAdeviner   []rune
 	motIconnu     []string
 	randomNb      int
