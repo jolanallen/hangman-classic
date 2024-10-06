@@ -6,42 +6,33 @@ import (
 	"math/rand"
 	"os"
 	"time"
-
-	
 )
 
 
 
 
 func (hangman *HANGMAN) Run() {
+	hangman.wordIsGood = false
+	
 	hangman.randomWord()
 	 for hangman.IsRunning {
 		hangman.letter()
-		hangman.testword()
 		if hangman.wordIsGood {
 			hangman.win()
-		} else {
-			hangman.gameOver()
 		}
-		
-		
-		
-
 	 }			
 }
 
 
 func (hangman *HANGMAN) letter() {
 	var Reader = bufio.NewReader(os.Stdin)
-	Rune, _, _:= Reader.ReadRune()
-	if Rune >= 'a' && Rune <= 'z' {
-		hangman.lettre = Rune 
-		
+	l, _, _:= Reader.ReadRune()
+	if l >= 'a' && l <= 'z' {
+		hangman.lettre = string(l)
 		hangman.testLetter()
-		
+		fmt.Println(hangman.motIconnu)
 	} else {
 		fmt.Println(hangman.motIconnu)
-	
 		fmt.Println("lettre entrée incorect!!")
 			
 		
@@ -49,34 +40,30 @@ func (hangman *HANGMAN) letter() {
 }
 func (hangman *HANGMAN) testword() {
 	hangman.wordIsGood = true
-	for l := range hangman.TabWord {
-		if hangman.motIconnu[l] == "_" {
-			break
-		} else if !(hangman.motIconnu[l] ==  hangman.TabMots[l]) {
+	for l := range hangman.motIconnu {
+		if !(hangman.motIconnu[l] == hangman.MotAdeviner[l]) {
 			hangman.wordIsGood = false
 			break
 		}
-			
-		
 	}
-	
 }
 func (hangman *HANGMAN) testLetter() {
 	hangman.lettreIsGood = false
 	for l := range hangman.MotAdeviner {
 		if hangman.lettre == hangman.MotAdeviner[l] {
-			hangman.lettreIsGood = true
-			hangman.motIconnu[l] = string(hangman.lettre)
+			hangman. lettreIsGood = true
+			fmt.Println(hangman.motIconnu)
+			hangman.motIconnu[l] = hangman.lettre
 		}
 		
 	}
-	if hangman.lettreIsGood {
-		fmt.Println(hangman.motIconnu)
-	} else {
-		
+	if !hangman.lettreIsGood {
 		hangman.erreur++
+		fmt.Println("Lettre incorrecte")
 	}
+
 	hangman.hangman()
+	hangman.testword()
 	
 }
 
@@ -89,20 +76,14 @@ func (hangman *HANGMAN) randomWord() {
 	rand.Seed(time.Now().UnixMilli())
 	hangman.randomNb = rand.Intn(len(hangman.TabMots))
 	hangman.Mot = hangman.TabMots[hangman.randomNb]
-	fmt.Println(hangman.Mot)
-	for _, l := range hangman.Mot {
-		hangman.TabWord = append(hangman.TabWord, string(l))
+	for _, char := range hangman.Mot {
+		hangman.MotAdeviner = append(hangman.MotAdeviner, string(char))
 	}
-	fmt.Println(hangman.TabWord)
-	hangman.MotAdeviner = []rune(hangman.Mot)
-	fmt.Println(hangman.MotAdeviner)
-	var inconnu string = "_"
-	for i := 0; i < len(hangman.MotAdeviner); i++ {
-		hangman.motIconnu = append(hangman.motIconnu, inconnu)
+	var l string = "_"
+	for i :=  0; i < len(hangman.Mot); i++ {
+		hangman.motIconnu = append(hangman.motIconnu, l)
 	}
 	fmt.Println(hangman.motIconnu)
-
-	
 
 }
 
@@ -111,8 +92,9 @@ func (hangman *HANGMAN) randomWord() {
 
 
 func (hangman *HANGMAN) win() {
-	
-	fmt.Print("fin du jeu vous avez gagner")
+	for i := 0; i <= 20; i++ {
+		fmt.Println("fin du jeu vous avez gagner le mot était bien", hangman.Mot)
+	}
 	hangman.IsRunning = false
 	
 	
