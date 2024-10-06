@@ -1,11 +1,9 @@
 package hangman
 
+
 import (
 	"fmt"
-
 )
-
-
 
 func (hangman *HANGMAN) hangman() {
 	if hangman.erreur == 0 {
@@ -13,7 +11,6 @@ func (hangman *HANGMAN) hangman() {
 	}
 	if hangman.erreur == 1 {
 		hangman.Etat1()
-        
 	}
 	if hangman.erreur == 2 {
 		hangman.Etat2()
@@ -30,103 +27,143 @@ func (hangman *HANGMAN) hangman() {
 	if hangman.erreur == 6 {
 		hangman.Etat6()
 	}
-}
+	if hangman.erreur == 7 {
+		hangman.Etat7()
+	}
+	if hangman.erreur == 8 {
+		hangman.Etat8()
+	}
+	if hangman.erreur == 9 {
+		hangman.Etat9()
+        hangman.gameOver()
+	}
 
+}
 
 func (hangman *HANGMAN) Etat0() {
-    fmt.Print(`
-                         Attemps 0/6
-     +---+
-     |   |
-         |
-         |
-         |
-         |
+	fmt.Println(`
+         
+      |  
+      |  
+      |  
+      |  
+      |  
+      |  
     =========
     `)
 }
-
 
 func (hangman *HANGMAN) Etat1() {
-    fmt.Print(`
-                         Attemps 1/6
-     +---+
-     |   |
-     O   |
-         |
-         |
-         |
+	fmt.Println(`
+          
+  +---+  
+      |  
+      |  
+      |  
+      |  
+      |  
     =========
     `)
 }
-
 
 func (hangman *HANGMAN) Etat2() {
-    fmt.Print(`
-                         Attemps 2/6
-     +---+
-     |   |
-     O   |
-     |   |
-         |
-         |
+	fmt.Println(` 
+         
+  +---+  
+  |   |  
+      |  
+      |  
+      |  
+      |  
     =========
     `)
 }
-
 
 func (hangman *HANGMAN) Etat3() {
-    fmt.Println(`
-                         Attemps 3/6
-     +---+
-     |   |
-     O   |
-    /|   |
-         |
-         |
+	fmt.Println(`
+         
+  +---+  
+  |   |  
+  O   |  
+      |  
+      |  
+      |  
     =========
     `)
 }
-
 
 func (hangman *HANGMAN) Etat4() {
-    fmt.Println(`
-                         Attemps 4/6
-     +---+
-     |   |
-     O   |
-    /|\  |
-         |
-         |
+	fmt.Println(`
+    
+  +---+  
+  |   |  
+  O   |  
+  |   |  
+      |  
+      |  
     =========
     `)
 }
-
 
 func (hangman *HANGMAN) Etat5() {
-    fmt.Println(`
-                        Attemps 5/6
-     +---+
-     |   |
-     O   |
-    /|\  |
-    /    |
-         |
+	fmt.Println(`
+          
+  +---+  
+  |   |  
+  O   |  
+ /|   |  
+      |  
+      |  
+    =========
+    `)
+}
+
+func (hangman *HANGMAN) Etat6() {
+	fmt.Println(`
+          
+  +---+  
+  |   |  
+  O   |  
+ /|\  |  
+      |  
+      |  
+    =========
+    `)
+}
+
+func (hangman *HANGMAN) Etat7() {
+	fmt.Println(`
+     
+  +---+  
+  |   |  
+  O   |  
+ /|\  |  
+ /    |  
+    =========
+    `)
+}
+
+func (hangman *HANGMAN) Etat8() {
+	fmt.Println(`
+         
+  +---+  
+  |   |  
+  O   |  
+ /|\  |  
+ / \  |  
     =========
     `)
 }
 
 
-func (hangman *HANGMAN) Etat6() {
-    fmt.Println(`
-                        Attemps 6/6
-     +---+
-     |   |
-     O   |
-    /|\	 |
-    / \  |
-         |
+func (hangman *HANGMAN) Etat9() {
+	fmt.Println(`
+          
+  +---+  
+  |   |  
+  O   |  
+ /|\  |  
+ / \  |  
     =========
     `)
-    hangman.gameOver()
 }
