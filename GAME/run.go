@@ -72,7 +72,7 @@ func (hangman *HANGMAN) testLetter() {
 }
 
 func (hangman *HANGMAN) randomWord() {
-	rand.Seed(time.Now().UnixMilli())                 /// EVERYONE bien se renseigner sur la library RAND !!!!!!!!
+	rand.Seed(time.Now().UnixMilli())                 /// EVERYONE bien se renseigner sur la library RAND !!!!!!!!§!!!!
 	hangman.randomNb = rand.Intn(len(hangman.TabMots))
 	hangman.Mot = hangman.TabMots[hangman.randomNb]
 	for _, char := range hangman.Mot {
