@@ -65,7 +65,6 @@ func (hangman *HANGMAN) intiwordlist() {
 		}
 		defer wordFile.Close()
 		hangman.IsRunning = true
-		fmt.Println(hangman.TabMots)
 	}
 }
 func (hangman *HANGMAN) initHangman() {

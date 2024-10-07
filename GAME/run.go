@@ -19,7 +19,6 @@ func (hangman *HANGMAN) Run() {
 	 for hangman.IsRunning {
 		hangman.letter()
 		hangman.testword()
-		fmt.Println(hangman.MotAdeviner)
 		hangman.hangman()
 		if hangman.wordIsGood {
 			hangman.win()
@@ -78,7 +77,6 @@ func (hangman *HANGMAN) randomWord() {
 	for _, char := range hangman.Mot {
 		hangman.MotAdeviner = append(hangman.MotAdeviner, string(char))
 	}
-	fmt.Println(hangman.MotAdeviner)
 	var l string = "_"
 	for i :=  0; i < len(hangman.Mot); i++ {
 		hangman.motIconnu = append(hangman.motIconnu, l)
@@ -93,6 +91,17 @@ func (hangman *HANGMAN) randomWord() {
 
 func (hangman *HANGMAN) win() {
 	for i := 0; i <= 20; i++ {
+		fmt.Println(`
+ 		__     __          __          ___       _ 
+ 		\ \   / /          \ \        / (_)     | |
+	 	 \ \_/ /__  _   _   \ \  /\  / / _ _ __ | |
+ 	 	  \   / _ \| | | |   \ \/  \/ / | | '_ \| |
+  		   | | (_) | |_| |    \  /\  /  | | | | |_|
+  	 	   |_|\___/ \__,_|     \/  \/   |_|_| |_(_)
+                                           
+                                           
+
+		`)
 		fmt.Println("fin du jeu vous avez gagner le mot était bien", hangman.Mot)
 	}
 	hangman.IsRunning = false
