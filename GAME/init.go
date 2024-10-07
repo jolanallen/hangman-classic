@@ -81,6 +81,9 @@ func (hangman *HANGMAN) randomWord() {
 	for i :=  0; i < len(hangman.Mot); i++ {
 		hangman.motIconnu = append(hangman.motIconnu, l)
 	}
+	rand.Seed(time.Now().UnixMilli())                 /// EVERYONE bien se renseigner sur la library RAND !!!!!!!!§!!!!
+	hangman.randomNb = rand.Intn(len(hangman.Mot))
+	hangman.motIconnu[hangman.randomNb] = hangman.MotAdeviner[hangman.randomNb] // permet de faire apparaitre  une lettre aléatoirement dans le mot a deviner
 	hangman.IsRunning = true
 	
 
