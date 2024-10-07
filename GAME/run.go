@@ -3,6 +3,7 @@ package hangman
 import (
 	"bufio"
 	"fmt"
+
 	"math/rand"
 	"os"
 	"time"
@@ -17,6 +18,9 @@ func (hangman *HANGMAN) Run() {
 	hangman.randomWord()
 	 for hangman.IsRunning {
 		hangman.letter()
+		hangman.testword()
+		fmt.Println(hangman.MotAdeviner)
+		hangman.hangman()
 		if hangman.wordIsGood {
 			hangman.win()
 		}
@@ -31,6 +35,7 @@ func (hangman *HANGMAN) letter() {
 		hangman.lettre = string(l)
 		hangman.testLetter()
 		fmt.Println(hangman.motIconnu)
+		
 	} else {
 		fmt.Println(hangman.motIconnu)
 		fmt.Println("lettre entrée incorect!!")
@@ -62,23 +67,18 @@ func (hangman *HANGMAN) testLetter() {
 		fmt.Println("Lettre incorrecte")
 	}
 
-	hangman.hangman()
-	hangman.testword()
+	
 	
 }
 
-	
-// pour appeler la fonction test word on vas utiliser la loncguer de mot inconu 
-// initialement le tableau mot inconnu suera vide et si la longuer du tableau inconu  = longeur mot a devier alors on appelle test word 
-// l'information de la taille du mot sera donnée par un print len(mot a deviner)
-
 func (hangman *HANGMAN) randomWord() {
-	rand.Seed(time.Now().UnixMilli())
+	rand.Seed(time.Now().UnixMilli())                 /// EVERYONE bien se renseigner sur la library RAND !!!!!!!!
 	hangman.randomNb = rand.Intn(len(hangman.TabMots))
 	hangman.Mot = hangman.TabMots[hangman.randomNb]
 	for _, char := range hangman.Mot {
 		hangman.MotAdeviner = append(hangman.MotAdeviner, string(char))
 	}
+	fmt.Println(hangman.MotAdeviner)
 	var l string = "_"
 	for i :=  0; i < len(hangman.Mot); i++ {
 		hangman.motIconnu = append(hangman.motIconnu, l)

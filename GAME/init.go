@@ -61,9 +61,11 @@ func (hangman *HANGMAN) intiwordlist() {
 		for scanner.Scan() { 
 			mot = scanner.Text()
 			hangman.TabMots = append(hangman.TabMots,  mot)
+			
 		}
 		defer wordFile.Close()
 		hangman.IsRunning = true
+		fmt.Println(hangman.TabMots)
 	}
 }
 func (hangman *HANGMAN) initHangman() {
