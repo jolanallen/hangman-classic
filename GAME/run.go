@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	
+	"strings"
 )
 
 
@@ -14,7 +14,7 @@ func (hangman *HANGMAN) Run() {
 	hangman.wordIsGood = false
 	 for hangman.IsRunning {
 		hangman.hangman()
-		hangman.letter()
+		hangman.readletter()
 		hangman.testword()
 		
 		
@@ -28,31 +28,31 @@ func (hangman *HANGMAN) Run() {
 }
 
 
-func (hangman *HANGMAN) letter() {
+func (hangman *HANGMAN) readletter() {
 	fmt.Println(hangman.motIconnu)
 	var Reader = bufio.NewReader(os.Stdin)
-	l, _, _:= Reader.ReadRune()
-	if l >= 'a' && l <= 'z' {
-		hangman.lettre = string(l)
-		hangman.testLetter()
-		hangman.UsedLetter = append(hangman.UsedLetter, hangman.lettre)
-		
-		
-		
-		
-		
-	} else {
-		fmt.Print(hangman.motIconnu)
-		fmt.Println("lettre entrée incorect!!")
-		
+	String,_:= Reader.ReadString('\n')
+	String = strings.TrimSpace(String)
+	if len(String) > 2 {
+		if String == hangman.Mot {
+			hangman.win()
+		} else {
 			
+			hangman.erreur += 2
+		}
 		
-	}
+	} else  {
+			hangman.lettre = String
+			hangman.UsedLetter = append(hangman.UsedLetter, hangman.lettre)
+			hangman.testLetter()
+	} 
+		
 }
 
 func (hangman *HANGMAN) testLetter() {
 	hangman.lettreIsGood = false
 	for l := range hangman.MotAdeviner {
+		
 		if hangman.lettre == hangman.MotAdeviner[l] {
 			hangman. lettreIsGood = true
 			hangman.motIconnu[l] = hangman.lettre

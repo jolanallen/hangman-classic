@@ -19,6 +19,7 @@ type HANGMAN struct {
 	erreur       int
 	lettreIsGood bool
 	lettre       string
+	tabletter    []string
 	UsedLetter   []string
 	
 	
