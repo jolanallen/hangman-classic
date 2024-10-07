@@ -5,6 +5,8 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"math/rand"
+	"time"
 )
 
 
@@ -15,11 +17,13 @@ func (hangman *HANGMAN) Init() {
 		hangman.drawDisplay()
 		hangman.intiwordlist()
 		hangman.initHangman()
+		hangman.randomWord()
 	} else {
 		hangman.drawDisplay()
 		hangman.Flag()
 		hangman.intiwordlist()
 		hangman.initHangman()
+		hangman.randomWord()
 
 	}
 }
@@ -64,12 +68,44 @@ func (hangman *HANGMAN) intiwordlist() {
 			
 		}
 		defer wordFile.Close()
-		hangman.IsRunning = true
 	}
 }
-func (hangman *HANGMAN) initHangman() {
-	hangman.lettreIsGood = true
-	hangman.hangman()
+func (hangman *HANGMAN) randomWord() {
+	rand.Seed(time.Now().UnixMilli())                 /// EVERYONE bien se renseigner sur la library RAND !!!!!!!!§!!!!
+	hangman.randomNb = rand.Intn(len(hangman.TabMots))
+	hangman.Mot = hangman.TabMots[hangman.randomNb]
+	for _, char := range hangman.Mot {
+		hangman.MotAdeviner = append(hangman.MotAdeviner, string(char))
+	}
+	var l string = "_"
+	for i :=  0; i < len(hangman.Mot); i++ {
+		hangman.motIconnu = append(hangman.motIconnu, l)
+	}
+	hangman.IsRunning = true
 	
-  
+
+}
+func (hangman *HANGMAN) initHangman() {
+	hangman.erreur = 0 
+	hangFile, err := os.Open("utile/hangman/hangman.txt")
+	if err != nil {
+		fmt.Println(err)
+		defer hangFile.Close()
+	}
+  	if err == nil {
+		scanner := bufio.NewScanner(hangFile)
+		var ligne string 
+    	
+		for scanner.Scan() { 
+			ligne = scanner.Text()
+     		if ligne == "" {
+       			hangman.TabHang = append(hangman.TabHang, hangman.etat.String() )
+       			hangman.etat.Reset()
+     		} else {
+        		hangman.etat.WriteString(ligne + "\n")
+     		}
+		}
+		defer hangFile.Close()
+		
+	}
 }

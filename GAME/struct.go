@@ -1,23 +1,25 @@
 package hangman
 
+import "strings"
+
 
 
 type HANGMAN struct {
 	IsRunning     bool
-	InGame        bool
-	Win           bool
-	Loose         bool
 	wordIsGood    bool
 	TabMots       []string
 	TabRune       []rune
 	Mot           string
 	MotAdeviner   []string
+	TabHang       []string
+	etat          strings.Builder
 	motIconnu     []string
 	randomNb      int
 	flag           bool
 	erreur       int
 	lettreIsGood bool
 	lettre       string
+	UsedLetter   []string
 	
 	
 	
