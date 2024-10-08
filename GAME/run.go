@@ -33,7 +33,7 @@ func (hangman *HANGMAN) readletter() {
 	var Reader = bufio.NewReader(os.Stdin)
 	String,_:= Reader.ReadString('\n')
 	String = strings.TrimSpace(String)
-	if len(String) > 2 {
+	if len(String) > 1 {
 		if String == hangman.Mot {
 			hangman.win()
 		} else {
@@ -41,7 +41,7 @@ func (hangman *HANGMAN) readletter() {
 			hangman.erreur += 2
 		}
 		
-	} else  {
+	} else if len(String) == 1 {
 			hangman.lettre = String
 			hangman.UsedLetter = append(hangman.UsedLetter, hangman.lettre)
 			hangman.testLetter()

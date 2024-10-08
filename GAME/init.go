@@ -12,27 +12,26 @@ import (
 
 
 func (hangman *HANGMAN) Init() {
-	
-	if !hangman.flag {
 		hangman.drawDisplay()
 		hangman.intiwordlist()
 		hangman.initHangman()
 		hangman.randomWord()
-	} else {
-		hangman.drawDisplay()
-		hangman.Flag()
-		hangman.intiwordlist()
-		hangman.initHangman()
-		hangman.randomWord()
-
-	}
 }
 func (hangman *HANGMAN)Flag() {
 	help := flag.Bool("h",false, "Afficher de l'aide\n")
+	hard := flag.Bool("hard",false, "mode de jeu hard mots dificile\n")
+	medium := flag.Bool("medium",false, "mode de jeu medium mot moyennement dificile\n")
 	flag.Parse()
 	if *help {
 		flag.Usage()
-		hangman.flag = true
+	}
+	if *hard {
+		hangman.hard = true 
+		fmt.Println("mode de jeu hard")
+	}
+	if *medium {
+		hangman.medium = true
+		fmt.Println("mode de jeu medium")
 	}
 }
 func (hangman *HANGMAN) drawDisplay() {
@@ -54,7 +53,24 @@ func (hangman *HANGMAN) drawDisplay() {
 }
 
 func (hangman *HANGMAN) intiwordlist() {
-	wordFile, err := os.Open("utile/wordlist/words.txt")
+	
+	if hangman.medium {
+		hangman.wordFile = "utile/wordlist/words2.txt"
+		fmt.Println("mode de jeu : medium")
+	} else if hangman.hard {
+		hangman.wordFile = "utile/wordlist/words3.txt"
+		fmt.Println("mode de jeu : hard")
+	} else {
+		hangman.wordFile = "utile/wordlist/words.txt"
+		fmt.Println("mode de jeu : soft (defaut)\n")
+		fmt.Println("tapez -medium pour un mode de jeux intermediare\n")
+		fmt.Println("tapez -hard pour un mode de jeux dificile\n\n\n")
+
+
+
+	}
+	
+	wordFile, err := os.Open(hangman.wordFile)
 	if err != nil {
 		fmt.Println(err)
 		defer wordFile.Close()
@@ -105,7 +121,7 @@ func (hangman *HANGMAN) initHangman() {
        			hangman.TabHang = append(hangman.TabHang, hangman.etat.String() )
        			hangman.etat.Reset()
      		} else {
-        		hangman.etat.WriteString(ligne + "\n")
+        		hangman.etat.WriteString(ligne + "\n") 
      		}
 		}
 		defer hangFile.Close()

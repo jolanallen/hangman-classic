@@ -16,11 +16,14 @@ type HANGMAN struct {
 	motIconnu     []string
 	randomNb      int
 	randomlettre  string
-	flag           bool
 	erreur       int
 	lettreIsGood bool
+	wordFile     string
 	lettre       string
 	UsedLetter   []string
+	soft         bool
+	medium       bool
+	hard         bool
 	
 	
 	
