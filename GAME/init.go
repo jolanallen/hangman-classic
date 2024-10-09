@@ -24,6 +24,7 @@ func (hangman *HANGMAN)Flag() {
 	flag.Parse()
 	if *help {
 		flag.Usage()
+		hangman.IsRunning = false
 	}
 	if *hard {
 		hangman.hard = true 
