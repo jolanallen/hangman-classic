@@ -15,13 +15,11 @@ type HANGMAN struct {
 	etat          strings.Builder
 	motIconnu     []string
 	randomNb      int
-	randomlettre  string
 	erreur       int
 	lettreIsGood bool
 	wordFile     string
 	lettre       string
 	UsedLetter   []string
-	soft         bool
 	medium       bool
 	hard         bool
 	
