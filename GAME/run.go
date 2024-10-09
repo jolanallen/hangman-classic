@@ -24,9 +24,9 @@ func (hangman *HANGMAN) Run() {
 }
 
 
-func (hangman *HANGMAN) readletter() {
-	fmt.Println(hangman.motIconnu)
-	var Reader = bufio.NewReader(os.Stdin)
+func (hangman *HANGMAN) readletter() { 
+	fmt.Println(hangman.motIconnu) //affiche dans la console la valeur de motIconnu
+	var Reader = bufio.NewReader(os.Stdin) 
 	String,_:= Reader.ReadString('\n')
 	String = strings.TrimSpace(String)
 	if len(String) > 1 {
@@ -39,7 +39,7 @@ func (hangman *HANGMAN) readletter() {
 		
 	} else if len(String) == 1 {
 			hangman.lettre = String
-			hangman.UsedLetter = append(hangman.UsedLetter, hangman.lettre)
+			hangman.UsedLetter = append(hangman.UsedLetter, hangman.lettre) //ajoute dans le tableau les lettres déjà utilisées
 			hangman.testLetter()
 	} 
 		
