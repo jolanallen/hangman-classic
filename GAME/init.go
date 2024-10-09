@@ -63,9 +63,9 @@ func (hangman *HANGMAN) intiwordlist() {
 		fmt.Println("mode de jeu : hard")
 	} else {
 		hangman.wordFile = "utile/wordlist/words.txt"
-		fmt.Println("mode de jeu : soft (defaut)", "\n\n")
-		fmt.Println("tapez -medium pour un mode de jeux intermediare", "\n\n")
-		fmt.Println("tapez -hard pour un mode de jeux dificile", "\n\n")
+		fmt.Println("mode de jeu : soft (defaut)")
+		fmt.Println("tapez -medium pour un mode de jeux intermediare")
+		fmt.Println("tapez -hard pour un mode de jeux dificile")
 	}
 	
 	wordFile, err := os.Open(hangman.wordFile)
