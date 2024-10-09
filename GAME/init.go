@@ -24,7 +24,6 @@ func (hangman *HANGMAN)Flag() {
 	flag.Parse()
 	if *help {
 		flag.Usage()
-		hangman.IsRunning = false
 	}
 	if *hard {
 		hangman.hard = true 
@@ -63,9 +62,9 @@ func (hangman *HANGMAN) intiwordlist() {
 		fmt.Println("mode de jeu : hard")
 	} else {
 		hangman.wordFile = "utile/wordlist/words.txt"
-		fmt.Println("mode de jeu : soft (defaut)\n")
-		fmt.Println("tapez -medium pour un mode de jeux intermediare\n")
-		fmt.Println("tapez -hard pour un mode de jeux dificile\n")
+		fmt.Println("mode de jeu : soft (defaut)", "\n\n")
+		fmt.Println("tapez -medium pour un mode de jeux intermediare", "\n\n")
+		fmt.Println("tapez -hard pour un mode de jeux dificile", "\n\n")
 	}
 	
 	wordFile, err := os.Open(hangman.wordFile)
