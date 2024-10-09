@@ -17,14 +17,10 @@ func (hangman *HANGMAN) Run() {
 		hangman.readletter()
 		hangman.testword()
 		
-		
-		
-		
 	 }			
 }
 
-
-func (hangman *HANGMAN) readletter() {
+func (hangman *HANGMAN) readletter() { 
 	fmt.Println(hangman.motIconnu)
 	var Reader = bufio.NewReader(os.Stdin)
 	String,_:= Reader.ReadString('\n')
@@ -59,13 +55,11 @@ func (hangman *HANGMAN) testLetter() {
 	if !hangman.lettreIsGood {
 		hangman.erreur++
 		
-		
 	}
 	if hangman.erreur <= 9 {
 		hangman.gameOver()
 	}
 	
-
 }
 func (hangman *HANGMAN) testword() {
 	hangman.wordIsGood = true
