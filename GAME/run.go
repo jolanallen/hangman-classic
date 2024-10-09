@@ -18,12 +18,8 @@ func (hangman *HANGMAN) Run() {
 		hangman.testword()
 		
 		
-		if hangman.wordIsGood {
-			hangman.win()
-		}
-		if hangman.erreur == 9 {
-			hangman.gameOver()
-		}
+		
+		
 	 }			
 }
 
@@ -62,7 +58,9 @@ func (hangman *HANGMAN) testLetter() {
 	}
 	if !hangman.lettreIsGood {
 		hangman.erreur++
-		
+		if hangman.erreur == 9 {
+			hangman.gameOver()
+		}
 		
 	}
 	
@@ -75,6 +73,9 @@ func (hangman *HANGMAN) testword() {
 			hangman.wordIsGood = false
 			break
 		}
+	}
+	if hangman.wordIsGood {
+		hangman.win()
 	}
 }
 
