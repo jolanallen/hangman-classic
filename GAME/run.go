@@ -50,13 +50,12 @@ func (hangman *HANGMAN) testLetter() {
 			hangman.motIconnu[l] = hangman.lettre
 			fmt.Println(hangman.motIconnu)
 		}
-		
 	}
 	if !hangman.lettreIsGood {
 		hangman.erreur++
 		
 	}
-	if hangman.erreur <= 9 {
+	if hangman.erreur >= 9 {
 		hangman.gameOver()
 	}
 	
@@ -78,11 +77,6 @@ func (hangman *HANGMAN) testword() {
 }
 
 
-
-
-
-
-
 func (hangman *HANGMAN) win() {
 		fmt.Println(`
  		__     __          __          ___       _ 
@@ -97,8 +91,6 @@ func (hangman *HANGMAN) win() {
 		`)
 		fmt.Println("fin du jeu vous avez gagner le mot était bien", hangman.Mot)
 	hangman.IsRunning = false
-	
-	
 	
 }
 

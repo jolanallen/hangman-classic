@@ -21,6 +21,7 @@ func (hangman *HANGMAN)Flag() {
 	help := flag.Bool("h",false, "Afficher de l'aide\n")
 	hard := flag.Bool("hard",false, "mode de jeu hard mots dificile\n")
 	medium := flag.Bool("medium",false, "mode de jeu medium mot moyennement dificile\n")
+	
 	flag.Parse()
 	if *help {
 		flag.Usage()
