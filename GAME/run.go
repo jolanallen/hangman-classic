@@ -22,7 +22,7 @@ func (hangman *HANGMAN) Run() {
 
 func (hangman *HANGMAN) readletter() { 
 	fmt.Println(hangman.motIconnu)
-	var Reader = bufio.NewReader(os.Stdin)
+	var Reader = bufio.NewReader(os.Stdin) ///// bklabala
 	String,_:= Reader.ReadString('\n')
 	String = strings.TrimSpace(String)
 	if len(String) > 1 {
