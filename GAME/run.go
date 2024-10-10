@@ -21,21 +21,21 @@ func (hangman *HANGMAN) Run() {
 }
 
 func (hangman *HANGMAN) readletter() { 
-	fmt.Println(hangman.motIconnu)
-	var Reader = bufio.NewReader(os.Stdin) ///// bklabalajhhsdiuvheih
-	String,_:= Reader.ReadString('\n')
-	String = strings.TrimSpace(String)
+	fmt.Println(hangman.motIconnu) //affiche dans la console la valeur de motIconnu
+	var Reader = bufio.NewReader(os.Stdin) //créé un reader
+	String,_:= Reader.ReadString('\n') //lit la ligne et la stocke dans la variable string
+	String = strings.TrimSpace(String) //supprime les espaces ou les retours a la ligne au début et à la fin de la chaine
 	if len(String) > 1 {
-		if String == hangman.Mot {
-			hangman.win()
+		if String == hangman.Mot { //si le mot écrit est le bon,
+			hangman.win()          //tu as gagné
 		} else {
 			
-			hangman.erreur += 2
+			hangman.erreur += 2 //sinon erreur +2
 		}
 		
 	} else if len(String) == 1 {
 			hangman.lettre = String
-			hangman.UsedLetter = append(hangman.UsedLetter, hangman.lettre)
+			hangman.UsedLetter = append(hangman.UsedLetter, hangman.lettre) //ajoute dans le tableau les lettres déjà utilisées
 			hangman.testLetter()
 	} 
 		
