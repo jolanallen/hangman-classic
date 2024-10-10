@@ -1,0 +1,112 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15" version="24.7.17">
+  <diagram name="Page-1" id="u1wejYDCxPziOqvg0UVe">
+    <mxGraphModel dx="838" dy="947" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ELO0OsSYZ6OSHaYVFXXq-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="429" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-1" value="" style="whiteSpace=wrap;html=1;aspect=fixed;rounded=1;glass=0;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="379.75" y="120" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ELO0OsSYZ6OSHaYVFXXq-3" target="ELO0OsSYZ6OSHaYVFXXq-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="429" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ELO0OsSYZ6OSHaYVFXXq-3" target="ELO0OsSYZ6OSHaYVFXXq-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ELO0OsSYZ6OSHaYVFXXq-3" target="ELO0OsSYZ6OSHaYVFXXq-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-3" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="363" y="260" width="131" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ELO0OsSYZ6OSHaYVFXXq-5" target="ELO0OsSYZ6OSHaYVFXXq-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-5" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-37" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ELO0OsSYZ6OSHaYVFXXq-10" target="ELO0OsSYZ6OSHaYVFXXq-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="Début fonction&lt;div&gt;intiwordlist()&lt;/div&gt;" placeholders="1" name="Variable" id="ELO0OsSYZ6OSHaYVFXXq-10">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;rounded=1;" vertex="1" parent="1">
+            <mxGeometry x="388" y="130" width="80.5" height="80" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ELO0OsSYZ6OSHaYVFXXq-13" target="ELO0OsSYZ6OSHaYVFXXq-25">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="429.75" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-13" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="357.75" y="370" width="142.25" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="ELO0OsSYZ6OSHaYVFXXq-15" target="ELO0OsSYZ6OSHaYVFXXq-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-15" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="355" width="131" height="70" as="geometry" />
+        </mxCell>
+        <UserObject label="Choisir mode de jeu:&lt;div&gt;-medium&lt;/div&gt;&lt;div&gt;-hard&lt;/div&gt;" placeholders="1" name="Variable" id="ELO0OsSYZ6OSHaYVFXXq-17">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="1">
+            <mxGeometry x="388.5" y="250" width="80" height="90" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Défault : open (words1.txt)" placeholders="1" name="Variable" id="ELO0OsSYZ6OSHaYVFXXq-18">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="1">
+            <mxGeometry x="230" y="375" width="100" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Medium : open&lt;div&gt;(words2.txt)&lt;/div&gt;" placeholders="1" name="Variable" id="ELO0OsSYZ6OSHaYVFXXq-19">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="1">
+            <mxGeometry x="380" y="390" width="100" height="40" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Hard: open&lt;div&gt;(words3.txt)&lt;/div&gt;" placeholders="1" name="Variable" id="ELO0OsSYZ6OSHaYVFXXq-20">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="1">
+            <mxGeometry x="538.25" y="372.5" width="94.5" height="35" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ELO0OsSYZ6OSHaYVFXXq-25" target="ELO0OsSYZ6OSHaYVFXXq-29">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ELO0OsSYZ6OSHaYVFXXq-25" target="ELO0OsSYZ6OSHaYVFXXq-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-25" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="332.75" y="480" width="191.5" height="80" as="geometry" />
+        </mxCell>
+        <UserObject label="Ouvre le fichier de mots&lt;div&gt;sélectionnés&lt;/div&gt;" placeholders="1" name="Variable" id="ELO0OsSYZ6OSHaYVFXXq-26">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="1">
+            <mxGeometry x="357.75" y="495" width="131.5" height="50" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-29" value="" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="545" width="120" height="60" as="geometry" />
+        </mxCell>
+        <UserObject label="Si erreur =&lt;div&gt;fermer&lt;/div&gt;" placeholders="1" name="Variable" id="ELO0OsSYZ6OSHaYVFXXq-31">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="1">
+            <mxGeometry x="590" y="555" width="80" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="ELO0OsSYZ6OSHaYVFXXq-33" value="" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="363.25" y="610" width="131.5" height="90" as="geometry" />
+        </mxCell>
+        <UserObject label="Ajoute les mots dans un tableau&lt;div&gt;exploitable par le programme&lt;/div&gt;" placeholders="1" name="Variable" id="ELO0OsSYZ6OSHaYVFXXq-36">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="1">
+            <mxGeometry x="371.5" y="620" width="116.5" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
