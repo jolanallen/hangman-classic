@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0" version="24.7.17">
+  <diagram name="Page-1" id="hiOKI_coeVCvP9J6KJZ8">
+    <mxGraphModel dx="1368" dy="910" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zQx9CXctW1eLp4IPXHRQ-1" value="" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="329" y="100" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-1" value="ReadLetter" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="384" y="135" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-2" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="zQx9CXctW1eLp4IPXHRQ-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="500" as="sourcePoint" />
+            <mxPoint x="414" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-4" value="affiche dans la console la valeur de motIconnu" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="250" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="4iPY-E8x-aBWWSdOQeul-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="450" as="sourcePoint" />
+            <mxPoint x="415" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-6" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="366" y="360" width="95" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-7" value="créé un reader" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="385" y="370" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="4iPY-E8x-aBWWSdOQeul-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="550" as="sourcePoint" />
+            <mxPoint x="414" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-9" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-10" value="lit la ligne et la stocke dans la variable string" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="372.5" y="455" width="85" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-11" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="4iPY-E8x-aBWWSdOQeul-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="580" as="sourcePoint" />
+            <mxPoint x="414" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-12" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="355" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-13" value="supprime les espaces ou les retours a la ligne au début et à la fin de la chaine" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="354" y="535" width="121" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-14" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="4iPY-E8x-aBWWSdOQeul-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="680" as="sourcePoint" />
+            <mxPoint x="415" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-15" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-16" value="si le mot écrit est le bon tu as gagné " style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="385" y="615" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-17" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="4iPY-E8x-aBWWSdOQeul-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="780" as="sourcePoint" />
+            <mxPoint x="414" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-18" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="680" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4iPY-E8x-aBWWSdOQeul-19" value="ajoute dans le tableau les lettres déjà utilisées" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="376" y="695" width="75" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
