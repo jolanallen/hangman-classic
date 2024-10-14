@@ -1,79 +1,108 @@
 package hangman
 
 import (
-	"bufio"
-	"fmt"
-	"os"
-	"strings"
+    "bufio"
+    "fmt"
+    "os"
+    "strings"
+    "unicode"
 )
 
+// normalize convertit une chaîne en enlevant les accents et en la mettant en minuscules
+func normalize(s string) string {
+    t := ""
+    for _, c := range s {
+        switch c {
+        case 'à', 'â', 'ä':
+            t += "a"
+        case 'é', 'è', 'ê', 'ë':
+            t += "e"
+        case 'î', 'ï':
+            t += "i"
+        case 'ô', 'ö':
+            t += "o"
+        case 'ù', 'û', 'ü':
+            t += "u"
+        case 'ç':
+            t += "c"
+        default:
+            t += string(unicode.ToLower(c))
+        }
+    }
+    return t
+}
 
+// Run est la boucle principale du jeu
 func (hangman *HANGMAN) Run() {
-	hangman.wordIsGood = false
-	for hangman.IsRunning {    /// Boucle principale qui continue tant que le jeu est actif.
-		hangman.hangman()      
-		hangman.readletter()  
-		hangman.testword()     
-	}			
+    hangman.wordIsGood = false
+    for hangman.IsRunning {
+        hangman.hangman()    // Affiche l'état actuel du pendu
+        hangman.readletter() // Lit une lettre ou un mot de l'utilisateur
+        hangman.testword()   // Vérifie si le mot est complet
+    }
 }
 
+// readletter lit l'entrée de l'utilisateur et la traite
+func (hangman *HANGMAN) readletter() {
+    fmt.Println(hangman.motIconnu)
+    var Reader = bufio.NewReader(os.Stdin)
+    String, _ := Reader.ReadString('\n')
+    String = strings.TrimSpace(String)
+    String = normalize(String) // Normalise l'entrée utilisateur (enlève les accents)
 
-func (hangman *HANGMAN) readletter() { 
-	fmt.Println(hangman.motIconnu)    
-	var Reader = bufio.NewReader(os.Stdin) ///// Crée un lecteur pour récupérer l'entrée de l'utilisateur dans le terminal
-	String,_ := Reader.ReadString('\n')    /// Récupère la saisie de l'utilisateur sous forme de chaîne.
-	String = strings.TrimSpace(String)     // supprime les espaces ou retours à la ligne 
-
-	if String >= "a" && String <= "z" {   			 /// Vérifie que l'entrée est bien une lettre (de a à z)
-		if len(String) > 1 {               /// Si l'utilisateur a entré un mot entier
-			if String == hangman.Mot {    	 // Si le mot deviné est correct, alors le joueur  gagne
-				hangman.win()              
-			} else {
-				hangman.erreur += 2        /// Sinon le mot est incorrect, + 2 a erreur
-			}
-		} else if len(String) == 1 {        /// Si l'utilisateur a entré une seule lettre.
-			hangman.lettre = String        
-			hangman.UsedLetter = append(hangman.UsedLetter, hangman.lettre) /// Ajoute cette lettre au tableau de lettres déjà utilisées.
-			hangman.testLetter()           
-		} 
-	} else {
-		fmt.Println("lettre incorrecte !!") 
-	}
+    if String >= "a" && String <= "z" {
+        if len(String) > 1 {
+            // Si l'utilisateur a entré un mot entier
+            if String == normalize(hangman.Mot) {
+                hangman.win() // Le joueur a gagné
+            } else {
+                hangman.erreur += 2 // Pénalité pour un mot incorrect
+            }
+        } else if len(String) == 1 {
+            // Si l'utilisateur a entré une seule lettre
+            hangman.lettre = String
+            hangman.UsedLetter = append(hangman.UsedLetter, hangman.lettre)
+            hangman.testLetter()
+        }
+    } else {
+        fmt.Println("Lettre incorrecte !!")
+    }
 }
 
+// testLetter vérifie si la lettre entrée est dans le mot et met à jour l'état du jeu
 func (hangman *HANGMAN) testLetter() {
-	hangman.lettreIsGood = false
-	for l := range hangman.MotAdeviner {
-		if hangman.lettre == hangman.MotAdeviner[l] { 			/// Si la lettre correspond à une lettre du mot à deviner.
-			hangman.lettreIsGood = true              	
-			hangman.motIconnu[l] = hangman.lettre    /// Remplace le tiret par la lettre trouvée dans le mot affiché.
-			       
-		}
-	}
-	if !hangman.lettreIsGood {                        /// Si la lettre n'est pas dans le mot
-		hangman.erreur++                  /// Ajoute une erreur
-	}
-	if hangman.erreur >= 9 {                          /// Si 9 erreurs sont atteintes, la partie est terminée.
-		hangman.gameOver()                           
-	}
+    hangman.lettreIsGood = false
+    normalizedMotAdeviner := normalize(hangman.MotAdeviner)
+    for l := range normalizedMotAdeviner {
+        if hangman.lettre == string(normalizedMotAdeviner[l]) {
+            hangman.lettreIsGood = true
+            hangman.motIconnu[l] = hangman.MotAdeviner[l] // Utilise la lettre originale pour l'affichage
+        }
+    }
+    if !hangman.lettreIsGood {
+        hangman.erreur++ // Incrémente le compteur d'erreurs si la lettre n'est pas dans le mot
+    }
+    if hangman.erreur >= 9 {
+        hangman.gameOver() // Fin du jeu si le nombre maximum d'erreurs est atteint
+    }
 }
 
+// testword vérifie si le mot entier a été deviné
 func (hangman *HANGMAN) testword() {
-	hangman.wordIsGood = true
-	for l := range hangman.motIconnu {
-		if !(hangman.motIconnu[l] == hangman.MotAdeviner[l]) { /// Vérifie si toutes les lettres du mot deviné sont correctes.
-			hangman.wordIsGood = false             /// Si une lettre ne correspond pas, le mot n'est pas complet.
-			break                          // arrêt de la boucle 
-		}
-	}
-	if hangman.wordIsGood {    /// Si le mot est entièrement correct le joueur gagne 
-		hangman.win()          
-	}
-	if hangman.erreur >= 9 {   /// Si il ya 9 erreurs  la partie est perdue.
-		hangman.gameOver()     
-	}
+    hangman.wordIsGood = true
+    for l := range hangman.motIconnu {
+        if hangman.motIconnu[l] == '_' {
+            hangman.wordIsGood = false
+            break
+        }
+    }
+    if hangman.wordIsGood {
+        hangman.win() // Le joueur a gagné si toutes les lettres sont devinées
+    }
+    if hangman.erreur >= 9 {
+        hangman.gameOver() // Fin du jeu si le nombre maximum d'erreurs est atteint
+    }
 }
-
 
 func (hangman *HANGMAN) win() {
 		fmt.Println(`
