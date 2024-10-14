@@ -4,11 +4,10 @@ import "strings"
 
 
 
-type HANGMAN struct {
+type HANGMAN struct {          // vatiable utiliser dans la structure du jeu
 	IsRunning     bool
 	wordIsGood    bool
 	TabMots       []string
-	TabRune       []rune
 	Mot           string
 	MotAdeviner   []string
 	TabHang       []string
@@ -22,8 +21,5 @@ type HANGMAN struct {
 	UsedLetter   []string
 	medium       bool
 	hard         bool
-	
-	
-	
 }
 
