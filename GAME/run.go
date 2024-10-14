@@ -17,6 +17,7 @@ func (hangman *HANGMAN) Run() {
 	}			
 }
 
+
 func (hangman *HANGMAN) readletter() { 
 	fmt.Println(hangman.motIconnu)    
 	var Reader = bufio.NewReader(os.Stdin) ///// Crée un lecteur pour récupérer l'entrée de l'utilisateur dans le terminal
