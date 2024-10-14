@@ -8,74 +8,68 @@ import (
 )
 
 
-
-
 func (hangman *HANGMAN) Run() {
 	hangman.wordIsGood = false
-	 for hangman.IsRunning {
-		hangman.hangman()
-		hangman.readletter()
-		hangman.testword()
-		
-	 }			
+	for hangman.IsRunning {    /// Boucle principale qui continue tant que le jeu est actif.
+		hangman.hangman()      
+		hangman.readletter()  
+		hangman.testword()     
+	}			
 }
 
 func (hangman *HANGMAN) readletter() { 
-	fmt.Println(hangman.motIconnu) //affiche dans la console la valeur de motIconnu
-	var Reader = bufio.NewReader(os.Stdin) //créé un reader
-	String,_:= Reader.ReadString('\n') //lit la ligne et la stocke dans la variable string
-	String = strings.TrimSpace(String) //supprime les espaces ou les retours a la ligne au début et à la fin de la chaine
-	if String >= "a" && String <= "z" {
-		if len(String) > 1 {
-			if String == hangman.Mot { //si le mot écrit est le bon,
-				hangman.win()          //tu as gagné
+	fmt.Println(hangman.motIconnu)    
+	var Reader = bufio.NewReader(os.Stdin) ///// Crée un lecteur pour récupérer l'entrée de l'utilisateur dans le terminal
+	String,_ := Reader.ReadString('\n')    /// Récupère la saisie de l'utilisateur sous forme de chaîne.
+	String = strings.TrimSpace(String)     // supprime les espaces ou retours à la ligne 
+
+	if String >= "a" && String <= "z" {   			 /// Vérifie que l'entrée est bien une lettre (de a à z)
+		if len(String) > 1 {               /// Si l'utilisateur a entré un mot entier
+			if String == hangman.Mot {    	 // Si le mot deviné est correct, alors le joueur  gagne
+				hangman.win()              
 			} else {
-				
-				hangman.erreur += 2 //sinon erreur +2
+				hangman.erreur += 2        /// Sinon le mot est incorrect, + 2 a erreur
 			}
-			
-		} else if len(String) == 1 {
-				hangman.lettre = String
-				hangman.UsedLetter = append(hangman.UsedLetter, hangman.lettre) //ajoute dans le tableau les lettres déjà utilisées
-				hangman.testLetter()
+		} else if len(String) == 1 {        /// Si l'utilisateur a entré une seule lettre.
+			hangman.lettre = String        
+			hangman.UsedLetter = append(hangman.UsedLetter, hangman.lettre) /// Ajoute cette lettre au tableau de lettres déjà utilisées.
+			hangman.testLetter()           
 		} 
 	} else {
-		fmt.Println("lettre incorect!!")
+		fmt.Println("lettre incorrecte !!") 
 	}
-		
 }
+
 func (hangman *HANGMAN) testLetter() {
 	hangman.lettreIsGood = false
 	for l := range hangman.MotAdeviner {
-		
-		if hangman.lettre == hangman.MotAdeviner[l] {
-			hangman. lettreIsGood = true
-			hangman.motIconnu[l] = hangman.lettre
-			fmt.Println(hangman.motIconnu)
+		if hangman.lettre == hangman.MotAdeviner[l] { 			/// Si la lettre correspond à une lettre du mot à deviner.
+			hangman.lettreIsGood = true              	
+			hangman.motIconnu[l] = hangman.lettre    /// Remplace le tiret par la lettre trouvée dans le mot affiché.
+			fmt.Println(hangman.motIconnu)           
 		}
 	}
-	if !hangman.lettreIsGood {
-		hangman.erreur++
-		
+	if !hangman.lettreIsGood {                        /// Si la lettre n'est pas dans le mot
+		hangman.erreur++                  /// Ajoute une erreur
 	}
-	if hangman.erreur >= 9 {
-		hangman.gameOver()
+	if hangman.erreur >= 9 {                          /// Si 9 erreurs sont atteintes, la partie est terminée.
+		hangman.gameOver()                           
 	}
-	
 }
+
 func (hangman *HANGMAN) testword() {
 	hangman.wordIsGood = true
 	for l := range hangman.motIconnu {
-		if !(hangman.motIconnu[l] == hangman.MotAdeviner[l]) {
-			hangman.wordIsGood = false
-			break
+		if !(hangman.motIconnu[l] == hangman.MotAdeviner[l]) { /// Vérifie si toutes les lettres du mot deviné sont correctes.
+			hangman.wordIsGood = false             /// Si une lettre ne correspond pas, le mot n'est pas complet.
+			break                          // arrêt de la boucle 
 		}
 	}
-	if hangman.wordIsGood {
-		hangman.win()
+	if hangman.wordIsGood {    /// Si le mot est entièrement correct le joueur gagne 
+		hangman.win()          
 	}
-	if hangman.erreur >= 9 {
-		hangman.gameOver()
+	if hangman.erreur >= 9 {   /// Si il ya 9 erreurs  la partie est perdue.
+		hangman.gameOver()     
 	}
 }
 
