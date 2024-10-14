@@ -17,21 +17,21 @@ func (hangman *HANGMAN) Init() {
 		hangman.initHangman()
 		hangman.randomWord()
 }
-func (hangman *HANGMAN)Flag() {
-	help := flag.Bool("h", false, "Afficher de l'aide")
-	hard := flag.Bool("hard", false, "mode de jeu hard mots dificile")
-	medium := flag.Bool("medium", false, "mode de jeu medium mot moyennement dificile")
-	
-	flag.Parse()
+func (hangman *HANGMAN) Flag() {
+	help := flag.Bool("h", false, "Afficher de l'aide")  /// flag pour afficher l'aide
+	hard := flag.Bool("hard", false, "mode de jeu hard mots difficiles")  /// flag pour choisir le mode de difficulté difficile
+	medium := flag.Bool("medium", false, "mode de jeu medium mots moyennement difficiles") /// flag pour choisir le mode de difficulté intermédiaire
+
+	flag.Parse() /// Analyse les flags passés en ligne de commande.
 
 	if *help {
-		flag.Usage()
+		flag.Usage()  /// Affiche l'aide si l'utilisateur a choisi l'option `-h`.
 	}
 	if *hard {
-		hangman.hard = true 
+		hangman.hard = true      /// Active le mode difficile si `-hard` est passé.
 		fmt.Println("mode de jeu hard")
 	} else if *medium {
-		hangman.medium = true
+		hangman.medium = true    /// Active le mode intermédiaire si `-medium` est passé.
 		fmt.Println("mode de jeu medium")
 	}
 }
@@ -55,59 +55,57 @@ func (hangman *HANGMAN) drawDisplay() {
 }
 
 func (hangman *HANGMAN) intiwordlist() {
-	
 	if hangman.medium {
-		hangman.wordFile = "utile/wordlist/words2.txt"
-		fmt.Println("mode de jeu : intermédaire")
+		hangman.wordFile = "utile/wordlist/words2.txt"  /// Utilise une liste de mots intermédiaires pour le mode médium.
+		fmt.Println("mode de jeu : intermédiaire")
 	} else if hangman.hard {
-		hangman.wordFile = "utile/wordlist/words3.txt"
+		hangman.wordFile = "utile/wordlist/words3.txt"  /// Utilise une liste de mots difficiles pour le mode hard.
 		fmt.Println("mode de jeu : hard")
 	} else {
-		hangman.wordFile = "utile/wordlist/words.txt"
-		fmt.Println("mode de jeu : soft (defaut)")
-		fmt.Println("tapez -medium pour un mode de jeux intermediare")
-		fmt.Println("tapez -hard pour un mode de jeux dificile")
+		hangman.wordFile = "utile/wordlist/words.txt"   /// Utilise la liste de mots par défaut (facile).
+		fmt.Println("mode de jeu : soft (défaut)")
+		fmt.Println("tapez -medium pour un mode de jeu intermédiaire")
+		fmt.Println("tapez -hard pour un mode de jeu difficile")
 	}
 		
-	wordFile, err := os.Open(hangman.wordFile)
+	wordFile, err := os.Open(hangman.wordFile)  /// Ouvre le fichier de la liste de mots.
 	if err != nil {
-		fmt.Println("Erreur ouverture fichier:", err)
+		fmt.Println("Erreur ouverture fichier:", err)  /// Affiche une erreur si le fichier ne peut être ouvert.
 		defer wordFile.Close()
 	}
 	if err == nil {
 		scanner := bufio.NewScanner(wordFile)
 		for scanner.Scan() { 
-			hangman.TabMots = append(hangman.TabMots,  scanner.Text())
+			hangman.TabMots = append(hangman.TabMots, scanner.Text())  /// Ajoute chaque mot du fichier à la liste `TabMots`.
 		}
-		defer wordFile.Close()
+		defer wordFile.Close()  /// Ferme le fichier après lecture.
 	}
 }
+
 func (hangman *HANGMAN) randomWord() {
-	rand.Seed(time.Now().UnixMilli())                 /// unixmilli c'est la date est l'heure de référence des systéme linux et time.now c'est l'heure actuelle seed c'est le point de départ a partir du quel le nombre aléatoire sera générer 
-	hangman.randomNb = rand.Intn(len(hangman.TabMots))
-	hangman.Mot = hangman.TabMots[hangman.randomNb]
-	for _, char := range hangman.Mot {
-		hangman.MotAdeviner = append(hangman.MotAdeviner, string(char))
-	}
-	//remplace les lettre par des underScore
-	for i :=  0; i < len(hangman.Mot); i++ {
-		hangman.motIconnu = append(hangman.motIconnu, "_")
-	}
-	//Révéler une lettre au hasard
-	hangman.randomNb = rand.Intn(len(hangman.Mot))
-	hangman.motIconnu[hangman.randomNb] = hangman.MotAdeviner[hangman.randomNb] // permet de faire apparaitre  une lettre aléatoirement dans le mot a deviner
-
-	hangman.IsRunning = true
+	rand.Seed(time.Now().UnixMilli())               /// Utilise la date du jour  pour générer un nombre aléatoire unixmili correspond a la date de reférence de Unix 01/01/1970
+	hangman.randomNb = rand.Intn(len(hangman.TabMots))                
+	hangman.Mot = hangman.TabMots[hangman.randomNb]             /////// Sélectionne le mot à deviner à partir du nombre aléatoire dans le tableau de mots 
 	
-
+	for _, char := range hangman.Mot {
+		hangman.MotAdeviner = append(hangman.MotAdeviner, string(char))  /// Ajoute chaque lettre du mot à deviner dans `MotAdeviner`.
+	}
+	
+	for i :=  0; i < len(hangman.Mot); i++ {
+		hangman.motIconnu = append(hangman.motIconnu, "_")  ///////::// Remplace chaque lettre par un underscore pour masquer le mot
+	}
+	
+	hangman.randomNb = rand.Intn(len(hangman.Mot))                    ///://////:: Sélectionne une lettre aléatoire à dévoiler
+	hangman.motIconnu[hangman.randomNb] = hangman.MotAdeviner[hangman.randomNb]              /// Révèle une lettre du mot à deviner
+	hangman.IsRunning = true                     /// Indique que le jeu est en cours.
 }
-func (hangman *HANGMAN) initHangman() {
-	hangman.erreur = 0 
 
-	hangFile, err := os.Open("utile/hangman/hangman.txt")
+func (hangman *HANGMAN) initHangman() {
+	hangman.erreur = 0                                         /// Initialise le compteur d'erreurs à 0.
+
+	hangFile, err := os.Open("utile/hangman/hangman.txt")  /// Ouvre le fichier contenant les états du pendu.
 	if err != nil {
 		fmt.Println(err)
-
 		defer hangFile.Close()
 	}
   	if err == nil {
@@ -115,13 +113,12 @@ func (hangman *HANGMAN) initHangman() {
     	
 		for scanner.Scan() { 
      		if scanner.Text() == "" {
-       			hangman.TabHang = append(hangman.TabHang, hangman.etat.String() )
+       			hangman.TabHang = append(hangman.TabHang, hangman.etat.String() )  /// Ajoute l'état graphique du pendu lorsqu'une ligne vide est rencontrée.
        			hangman.etat.Reset()
      		} else {
-        		hangman.etat.WriteString(scanner.Text() + "\n") 
+        		hangman.etat.WriteString(scanner.Text() + "\n")  /// Continue à lire les lignes pour ajouter l'état du pendu.
      		}
 		}
-		defer hangFile.Close()
-		
+		defer hangFile.Close()  /// Ferme le fichier après lecture.
 	}
 }
