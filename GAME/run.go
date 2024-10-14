@@ -46,7 +46,7 @@ func (hangman *HANGMAN) testLetter() {
 		if hangman.lettre == hangman.MotAdeviner[l] { 			/// Si la lettre correspond à une lettre du mot à deviner.
 			hangman.lettreIsGood = true              	
 			hangman.motIconnu[l] = hangman.lettre    /// Remplace le tiret par la lettre trouvée dans le mot affiché.
-			a         
+			       
 		}
 	}
 	if !hangman.lettreIsGood {                        /// Si la lettre n'est pas dans le mot
